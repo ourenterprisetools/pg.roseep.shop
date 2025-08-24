@@ -8,20 +8,26 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <link rel="icon" href="assets/images/oficial.png" type="image/png" />
 
-    <!-- Preconnect/Preload ConverteAI -->
-    <link rel="preconnect" href="https://cdn.converteai.net" crossorigin />
+    <!-- Network warm-up -->
     <link rel="preconnect" href="https://scripts.converteai.net" crossorigin />
+    <link rel="preconnect" href="https://cdn.converteai.net" crossorigin />
     <link rel="preconnect" href="https://images.converteai.net" crossorigin />
     <link rel="preconnect" href="https://api.vturb.com.br" crossorigin />
+    <link rel="dns-prefetch" href="https://scripts.converteai.net" />
+    <link rel="dns-prefetch" href="https://cdn.converteai.net" />
+    <link rel="dns-prefetch" href="https://images.converteai.net" />
+    <link rel="dns-prefetch" href="https://api.vturb.com.br" />
+
+    <!-- Preload player -->
     <link
       rel="preload"
-      href="https://scripts.converteai.net/dc2bee22-f6b3-41ae-b28c-3a61aaac8be4/ab-test/67fa5edf7066994f5aca03b4/player.js"
+      href="https://scripts.converteai.net/dc2bee22-f6b3-41ae-b28c-3a61aaac8be4/ab-test/689e7c6d3d1881737d6e75d7/player.js"
       as="script"
       crossorigin
     />
     <link
       rel="preload"
-      href="https://scripts.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js"
+      href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js"
       as="script"
       crossorigin
     />
@@ -31,7 +37,7 @@
         --bg: #fff;
         --fg: #111;
         --muted: #999;
-        --eye-offset: -4dvh; /* desloca levemente para a zona de leitura */
+        --eye-offset: -4dvh; /* leve deslocamento do vídeo no mobile */
       }
 
       html,
@@ -47,23 +53,25 @@
 
       /* ===== HERO VSL ===== */
       .hero-vsl {
-        min-height: 100dvh; /* ocupa a tela útil do smartphone */
+        min-height: 100dvh;
         display: grid;
-        place-items: center; /* centraliza horizontal/vertical */
-
+        place-items: center;
         box-sizing: border-box;
       }
 
       .vsl-shell {
         width: min(100%, 780px);
-        transform: translateY(var(--eye-offset)); /* ajuste de “eye-line” */
+        transform: translateY(var(--eye-offset));
+        padding: 0 16px;
       }
 
       .vsl-embed {
         position: relative;
         width: 100%;
+        aspect-ratio: 16 / 9; /* evita CLS */
         border-radius: 12px;
         overflow: hidden;
+        background: #000; /* placeholder enquanto carrega */
       }
 
       /* Garante que o player ocupe o container quando for movido para dentro */
@@ -138,13 +146,18 @@
         color: #ddd;
       }
 
-      /* Desktop: tira o deslocamento para central absoluto puro */
       @media (min-width: 992px) {
         .vsl-shell {
-          transform: none;
+          transform: none; /* central absoluto no desktop */
         }
       }
     </style>
+
+    <!-- Tracking não-bloqueante -->
+    <script
+      defer
+      src="https://track.onebetter-life.site/unilpclick.js?attribution=lastpaid&cookiedomain=khelopotes.shop&cookieduration=90&defaultcampaignid=68aa559014ffa01246e20309&regviewonce=false"
+    ></script>
   </head>
 
   <body>
@@ -152,24 +165,21 @@
     <section class="hero-vsl" aria-label="Vídeo principal">
       <div class="vsl-shell">
         <div class="vsl-embed" id="vsl-mount">
-          <!-- Script de bootstrap do player ConverteAI -->
-          <vturb-smartplayer
-            id="ab-689e7c6d3d1881737d6e75d7"
-            style="display: block; margin: 0 auto; width: 100%"
-          ></vturb-smartplayer>
-          <script type="text/javascript">
-            var s = document.createElement("script");
-            (s.src =
-              "https://scripts.converteai.net/dc2bee22-f6b3-41ae-b28c-3a61aaac8be4/ab-test/689e7c6d3d1881737d6e75d7/player.js"),
-              (s.async = !0),
-              document.head.appendChild(s);
-          </script>
+          <!-- Player ConverteAI -->
+          <div id="my-player"></div><script src="https://roseep.shop/vsdgnjsxok/player.js"></script>
+          <noscript>
+            <div
+              style="display:grid;place-items:center;height:100%;padding:16px;color:#fff"
+            >
+              Ative o JavaScript para assistir ao vídeo.
+            </div>
+          </noscript>
         </div>
       </div>
     </section>
 
     <!-- Rodapé -->
-    <footer>
+    <footer role="contentinfo">
       <div class="footer-inner">
         <nav aria-label="Links legais">
           <ul class="footer-links">
@@ -184,67 +194,17 @@
           network, including YouTube™. It is not endorsed by Google™ or
           YouTube™. Google™ and YouTube™ are trademarks of their respective
           owners. Medical/FDA: Content is for educational purposes only and has
-          not been evaluated by the FDA or other regulators. It is not medical
-          advice and does not diagnose, treat, cure, or prevent disease. Consult
-          a qualified healthcare professional—especially if pregnant, nursing,
-          on medication, or managing a condition. Marketing & Compensation: This
-          site is a commercial marketplace. We may receive compensation for
-          promoted products/services, including lead-generation commissions.
-          Advertising Nature: The content is promotional/advertising, not
-          editorial or news. Any people shown may be professional models.
-          Testimonials & Privacy: Testimonials are illustrative and not typical.
-          Some names/images may be changed to protect privacy. Research
-          Institutions: This site is not affiliated with, sponsored by, or
-          endorsed by UC Davis Center for Neuroscience, Center for Brain
-          Science, McGovern Institute for Brain Research, Allen Institute for
-          Brain Science, or any other institutions mentioned. References are
-          informational only.
+          not been evaluated by the FDA or other regulators.
         </p>
-        <p class="copyright">&copy; 2025. All rights reserved.</p>
+        <p class="copyright">
+          &copy; <span id="y"></span>. All rights reserved.
+        </p>
       </div>
     </footer>
 
-    <!-- Encaixe automático do player ConverteAI dentro do container -->
     <script>
-      (function attachConverteAIToContainer() {
-        const host = document.getElementById("vsl-mount");
-        if (!host) return;
-
-        const tryMount = () => {
-          // Seletores comuns do player ConverteAI/Smartplayer
-          const player = document.querySelector(
-            '.smartplayer, [data-smartplayer], .vturb-player, iframe[src*="converteai"], #video_player'
-          );
-
-          if (player && !host.contains(player)) {
-            try {
-              host.appendChild(player);
-              // Garante preenchimento total do container
-              Object.assign(player.style, {
-                position: "absolute",
-                inset: "0",
-                width: "100%",
-                height: "100%",
-                maxWidth: "100%",
-              });
-              return true;
-            } catch (e) {}
-          }
-          return false;
-        };
-
-        // Tenta imediatamente e continua observando mutações do DOM
-        if (!tryMount()) {
-          const obs = new MutationObserver(
-            () => tryMount() && obs.disconnect()
-          );
-          obs.observe(document.documentElement, {
-            childList: true,
-            subtree: true,
-          });
-          window.addEventListener("load", tryMount, { once: true });
-        }
-      })();
+      // ano automático no rodapé
+      document.getElementById("y").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
