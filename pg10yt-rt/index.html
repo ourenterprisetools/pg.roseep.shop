@@ -1,210 +1,729 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page</title>
-
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="icon" href="assets/images/oficial.png" type="image/png" />
-
-    <!-- Network warm-up -->
-    <link rel="preconnect" href="https://scripts.converteai.net" crossorigin />
-    <link rel="preconnect" href="https://cdn.converteai.net" crossorigin />
-    <link rel="preconnect" href="https://images.converteai.net" crossorigin />
-    <link rel="preconnect" href="https://api.vturb.com.br" crossorigin />
-    <link rel="dns-prefetch" href="https://scripts.converteai.net" />
-    <link rel="dns-prefetch" href="https://cdn.converteai.net" />
-    <link rel="dns-prefetch" href="https://images.converteai.net" />
-    <link rel="dns-prefetch" href="https://api.vturb.com.br" />
-
-    <!-- Preload player -->
-    <link
-      rel="preload"
-      href="https://scripts.converteai.net/dc2bee22-f6b3-41ae-b28c-3a61aaac8be4/ab-test/689e7c6d3d1881737d6e75d7/player.js"
-      as="script"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js"
-      as="script"
-      crossorigin
-    />
-
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WholeVibe Capital - Complete Financial Solutions</title>
     <style>
-      :root {
-        --bg: #fff;
-        --fg: #111;
-        --muted: #999;
-        --eye-offset: -4dvh; /* leve deslocamento do vídeo no mobile */
-      }
-
-      html,
-      body {
-        height: 100%;
-      }
-      body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: var(--bg);
-        color: var(--fg);
-      }
-
-      /* ===== HERO VSL ===== */
-      .hero-vsl {
-        min-height: 100dvh;
-        display: grid;
-        place-items: center;
-        box-sizing: border-box;
-      }
-
-      .vsl-shell {
-        width: min(100%, 780px);
-        transform: translateY(var(--eye-offset));
-        padding: 0 16px;
-      }
-
-      .vsl-embed {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 16 / 9; /* evita CLS */
-        border-radius: 12px;
-        overflow: hidden;
-        background: #000; /* placeholder enquanto carrega */
-      }
-
-      /* Garante que o player ocupe o container quando for movido para dentro */
-      .vsl-embed > iframe,
-      .vsl-embed > video,
-      .vsl-embed > div {
-        position: absolute !important;
-        inset: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        border: 0;
-      }
-
-      /* ===== Seções existentes ===== */
-      .trusted-logos {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-        max-width: 1100px;
-      }
-      .trusted-logos img {
-        height: 50px;
-        width: auto;
-        display: block;
-      }
-
-      #stock-counter {
-        display: none;
-        font-weight: 700;
-        text-align: center;
-        margin: 0.8rem 0 1.3rem;
-        font-size: 1.1rem;
-      }
-
-      footer {
-        background: #111;
-        color: #fff;
-      }
-      .footer-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-        text-align: center;
-      }
-      .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 1rem 0 0;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-      .footer-links a {
-        color: #ccc;
-        text-decoration: none;
-      }
-      .footer-links a:hover,
-      .footer-links a:focus {
-        text-decoration: underline;
-      }
-      .disclaimer {
-        margin-top: 1rem;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-      .copyright {
-        margin-top: 1rem;
-        font-size: 0.85rem;
-        color: #ddd;
-      }
-
-      @media (min-width: 992px) {
-        .vsl-shell {
-          transform: none; /* central absoluto no desktop */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+        
+        /* Header */
+        header {
+            background: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c5282;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #2c5282;
+        }
+        
+        .nav-cta {
+            background: #2c5282;
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+        }
+        
+        .nav-cta:hover {
+            background: #2a4e7c;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: #f7fafc;
+            padding: 5rem 2rem;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-primary {
+            background: #2c5282;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #2a4e7c;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #2c5282;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            border: 2px solid #2c5282;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #2c5282;
+            color: white;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 4rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #2c5282;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            color: #718096;
+            font-weight: 500;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: #fff;
+        }
+        
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+        
+        .services-subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: #f7fafc;
+            padding: 2.5rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #2c5282;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .service-card h3 {
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #718096;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-link {
+            color: #2c5282;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Features Section */
+        .features {
+            background: #f7fafc;
+            padding: 5rem 2rem;
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .features-content h2 {
+            font-size: 2.5rem;
+            color: #1a202c;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-check {
+            width: 24px;
+            height: 24px;
+            background: #48bb78;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .feature-item h4 {
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item p {
+            color: #718096;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: #2c5282;
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-white {
+            background: white;
+            color: #2c5282;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        .cta-white:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            color: #1a202c;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #e6f2ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c5282;
+            flex-shrink: 0;
+        }
+        
+        .contact-form {
+            background: #f7fafc;
+            padding: 2.5rem;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1a202c;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5282;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #2c5282;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #2a4e7c;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            z-index: 999;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+        }
+        
+        .footer-section p,
+        .footer-section ul {
+            color: #a0aec0;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #2d3748;
+            padding-top: 1rem;
+            text-align: center;
+            color: #a0aec0;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero-container,
+            .features-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
-
-    <!-- Tracking não-bloqueante -->
-    <script src="https://track.onebetter-life.site/unilpclick.js?attribution=lastpaid&cookiedomain=roseep.shop&cookieduration=90&defaultcampaignid=68ab96fd7e7c2bbd6b8200dd&regviewonce=false"></script>
-  </head>
-
-  <body>
-    <!-- HERO com VSL centralizada -->
-    <section class="hero-vsl" aria-label="Vídeo principal">
-      <div class="vsl-shell">
-        <div class="vsl-embed" id="vsl-mount">
-          <!-- Player ConverteAI -->
-          <smart-player
-            style="display: block; margin: 0 auto; width: 100%"
-          ></smart-player>
-          <script>
-            (function () {
-              var s = document.createElement("script");
-              s.src = "https://roseep.shop/vsdgnjsxok/player.js";
-              s.defer = true;
-              document.head.appendChild(s);
-            })();
-          </script>
-        </div>
-      </div>
-    </section>
-
-    <!-- Rodapé -->
-    <footer role="contentinfo">
-      <div class="footer-inner">
-        <nav aria-label="Links legais">
-          <ul class="footer-links">
-            <li><a href="terms.html">Terms &amp; Conditions</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="refund.html">Refund Policy</a></li>
-          </ul>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">WholeVibe Capital</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
+            </ul>
         </nav>
-
-        <p class="disclaimer">
-          Independence: This site operates independently from Google™ and its
-          network, including YouTube™. It is not endorsed by Google™ or
-          YouTube™. Google™ and YouTube™ are trademarks of their respective
-          owners. Medical/FDA: Content is for educational purposes only and has
-          not been evaluated by the FDA or other regulators.
-        </p>
-        <p class="copyright">
-          &copy; <span id="y"></span>. All rights reserved.
-        </p>
-      </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Complete Financial Solutions for Your Business</h1>
+                <p>Partner with WholeVibe Capital for comprehensive financial services that drive growth and secure your future.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Schedule Consultation</a>
+                    <a href="#services" class="btn-secondary">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Business financial dashboard">
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>$2.5B+</h3>
+                <p>Assets Managed</p>
+            </div>
+            <div class="stat-item">
+                <h3>15,000+</h3>
+                <p>Clients Served</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Client Satisfaction</p>
+            </div>
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Years Experience</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2>Our Professional Services</h2>
+            <p class="services-subtitle">Tailored financial solutions for every stage of your journey</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Wealth Management</h3>
+                    <p>Strategic portfolio management designed to preserve and grow your wealth through market cycles.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Corporate Finance</h3>
+                    <p>Comprehensive financial solutions for businesses, from capital raising to merger advisory.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Investment Banking</h3>
+                    <p>Expert guidance on complex transactions, IPOs, and strategic financial restructuring.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Risk Management</h3>
+                    <p>Protect your assets with our comprehensive risk assessment and mitigation strategies.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏦</div>
+                    <h3>Private Banking</h3>
+                    <p>Exclusive banking services tailored to high-net-worth individuals and families.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Digital Solutions</h3>
+                    <p>Cutting-edge fintech solutions for seamless financial management and transactions.</p>
+                    <a href="#" class="service-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="about">
+        <div class="features-container">
+            <div class="features-content">
+                <h2>Why Choose WholeVibe Capital</h2>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <h4>Expert Team</h4>
+                        <p>Seasoned professionals with decades of combined experience in global markets.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <h4>Personalized Approach</h4>
+                        <p>Custom strategies aligned with your unique goals and risk tolerance.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <h4>Global Reach</h4>
+                        <p>Access to international markets and investment opportunities worldwide.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div>
+                        <h4>Transparent Fees</h4>
+                        <p>Clear, competitive pricing with no hidden costs or surprises.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="features-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=500&fit=crop" alt="Financial analysis" style="width: 100%; border-radius: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Transform Your Financial Future?</h2>
+            <p>Join thousands of satisfied clients who trust WholeVibe Capital with their financial success.</p>
+            <a href="#contact" class="cta-white">Start Your Journey Today</a>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p style="color: #718096; margin-bottom: 2rem;">We're here to answer your questions and help you achieve your financial goals.</p>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Visit Us</h4>
+                        <p style="color: #718096;">456 Corporate Plaza, Suite 2000<br>Business District, NY 10001</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p style="color: #718096;">support@wholevibeliving.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p style="color: #718096;">+1 (415) 555-0126</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div>
+                        <h4>Business Hours</h4>
+                        <p style="color: #718096;">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+            <h3>Get Started Today</h3>
+            <p style="margin-bottom: 30px; color: #666;">Contact us through any of our available channels. Our financial experts are ready to help you achieve your goals.</p>
+            <div class="contact-methods" style="display: flex; flex-direction: column; gap: 20px;">
+                <a href="https://wa.me/14155550126" style="background-color: #25d366; color: white; padding: 16px 30px; text-align: center; text-decoration: none; font-size: 18px; font-weight: 500; border-radius: 5px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                    </svg>
+                    Start WhatsApp Chat
+                </a>
+                <a href="mailto:support@wholevibeliving.com" style="background-color: #333; color: white; padding: 16px 30px; text-align: center; text-decoration: none; font-size: 18px; font-weight: 400; border-radius: 5px; display: block; transition: all 0.3s ease;">
+                    Send Email Message
+                </a>
+                <a href="tel:14155550126" style="background-color: transparent; color: #333; padding: 16px 30px; text-align: center; text-decoration: none; font-size: 18px; font-weight: 400; border: 2px solid #333; border-radius: 5px; display: block; transition: all 0.3s ease;">
+                    Call Us Directly
+                </a>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <a href="https://wa.me/14155550126" class="whatsapp-float" target="_blank">
+        <span>💬</span>
+    </a>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="refund-policy.html">Refund Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div><div class="footer-bottom">
+            <p>  2024 Aurora Global Holdings Limited. All rights reserved. | Member FINRA/SIPC | Company Number: 3338042</p>
+        </div>
     </footer>
 
-    <script>
-      // ano automático no rodapé
-      document.getElementById("y").textContent = new Date().getFullYear();
-    </script>
-  </body>
-</html>
+</body></html>
